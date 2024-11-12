@@ -7,7 +7,7 @@ Este projeto é uma API desenvolvida em **.NET Core**, utilizando o padrão de U
 O projeto não tem nada fora do normal do desafio, porém é importante destacar para caso não tenha alguma das dependências ou algum problema para iniciar / consumir a aplicação. Seguem requisitos e links úteis :
 
 ### 1. **.NET Framework / SDK**
-- **.NET 6.0 SDK** ou superior para o .NET.
+- **.NET 8.0 SDK** ou superior para o .NET.
 - [Download do .NET SDK](https://dotnet.microsoft.com/download)
 
 ### 2. **IDE**
