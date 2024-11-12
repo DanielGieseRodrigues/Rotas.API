@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RotasService, Rota } from '../rotas.service';
+import { RotasService } from '../rotas.service';
+import { Rota } from '../rota.model';
 
 @Component({
   selector: 'app-crud-rotas',
@@ -9,11 +10,12 @@ import { RotasService, Rota } from '../rotas.service';
 export class CrudRotasComponent implements OnInit {
   rotas: Rota[] = [];
   novaRota: Rota = { origem: '', destino: '', valor: 0 };
+  rotaEditando: Rota | null = null;
 
   constructor(private rotasService: RotasService) { }
 
   ngOnInit(): void {
-    this.getRotas();
+    this.getRotas(); 
   }
 
   getRotas(): void {
@@ -23,15 +25,34 @@ export class CrudRotasComponent implements OnInit {
   }
 
   addRota(): void {
-    this.rotasService.addRota(this.novaRota).subscribe(() => {
-      this.getRotas();
-      this.novaRota = { origem: '', destino: '', valor: 0 };
-    });
+    if (this.rotaEditando) {
+      this.rotasService.editarRota(this.rotaEditando.id!, this.novaRota).subscribe(() => {
+        this.getRotas();  
+        this.rotaEditando = null;  
+        this.novaRota = { origem: '', destino: '', valor: 0 };
+      });
+    } else {
+      
+      this.rotasService.addRota(this.novaRota).subscribe(() => {
+        this.getRotas();  
+        this.novaRota = { origem: '', destino: '', valor: 0 };  
+      });
+    }
   }
 
   excluirRota(id: number): void {
-    this.rotasService.excluirRota(id).subscribe(() => {
-      this.getRotas();
-    });
+    if (id !== undefined && id !== null) {  
+      this.rotasService.excluirRota(id).subscribe(() => {
+        this.getRotas(); 
+      });
+    } else {
+      console.error('ID da rota inválido');
+    }
+  }
+
+
+  editarRota(rota: Rota): void {
+    this.rotaEditando = { ...rota }; 
+    this.novaRota = { ...rota }; 
   }
 }

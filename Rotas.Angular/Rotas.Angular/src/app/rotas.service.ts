@@ -1,16 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-export interface Rota {
-  id?: number;  
-  origem: string;
-  destino: string;
-  valor: number;
-}
+import { Rota } from './rota.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class RotasService {
   private apiUrl = 'https://localhost:7028/api/Rotas';
@@ -21,15 +15,19 @@ export class RotasService {
     return this.http.get<Rota[]>(`${this.apiUrl}`);
   }
 
-  addRota(rota: Rota): Observable<Rota> {
-    return this.http.post<Rota>(`${this.apiUrl}`, rota);
+  addRota(rota: Rota): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}`, rota);
   }
 
   excluirRota(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  calcularMelhorRota(origem: string, destino: string): Observable<{ melhorRota: string }> {
-    return this.http.get<{ melhorRota: string }>(`${this.apiUrl}/calcular-melhor-rota/${origem}/${destino}`);
+  editarRota(id: number, rota: Rota): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/${id}`, rota);
+  }
+
+  calcularMelhorRota(origem: string, destino: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/calcular-melhor-rota/${origem}/${destino}`);
   }
 }
