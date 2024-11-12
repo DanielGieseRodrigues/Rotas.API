@@ -1,30 +1,35 @@
-<h2>CRUD de Rotas</h2>
+<h2 class="title">Gerenciamento de Rotas</h2>
 
-<form (ngSubmit)="addRota()">
-  <label for="origem">Origem</label>
-  <input id="origem" [(ngModel)]="novaRota.origem" name="origem" placeholder="Digite a origem" required>
+<form (ngSubmit)="addRota()" class="form">
+  <div class="form-group">
+    <label for="origem">Origem</label>
+    <input id="origem" [(ngModel)]="novaRota.origem" name="origem" placeholder="Digite a origem" required class="input" maxlength="3" />
+  </div>
 
-  <label for="destino">Destino</label>
-  <input id="destino" [(ngModel)]="novaRota.destino" name="destino" placeholder="Digite o destino" required>
+  <div class="form-group">
+    <label for="destino">Destino</label>
+    <input id="destino" [(ngModel)]="novaRota.destino" name="destino" placeholder="Digite o destino" required class="input" maxlength="3"/>
+  </div>
 
-  <label for="valor">Valor</label>
-  <input id="valor" [(ngModel)]="novaRota.valor" name="valor" type="number" placeholder="Digite o valor" required>
+  <div class="form-group">
+    <label for="valor">Valor</label>
+    <input id="valor" [(ngModel)]="novaRota.valor" name="valor" type="number" placeholder="Digite o valor" required class="input" />
+  </div>
 
-  <button type="submit">{{ rotaEditando ? 'Salvar Alterações' : 'Adicionar Rota' }}</button>
+  <button type="submit" class="btn">{{ rotaEditando ? 'Salvar Alterações' : 'Adicionar Rota' }}</button>
 </form>
 
-
-<div *ngIf="rotas.length > 0">
+<div *ngIf="rotas.length > 0" class="rotas-list">
   <h3>Lista de Rotas</h3>
   <ul>
-    <li *ngFor="let rota of rotas">
-      {{ rota.origem }} - {{ rota.destino }}: {{ rota.valor }}$
-      <button (click)="editarRota(rota)">Editar</button>
-      <button *ngIf="rota.id !== undefined" (click)="excluirRota(rota.id)">Excluir</button>
+    <li *ngFor="let rota of rotas" class="rota-item">
+      <span>{{ rota.origem }} - {{ rota.destino }}: {{ rota.valor }}$</span>
+      <button (click)="editarRota(rota)" class="btn-edit">Editar</button>
+      <button *ngIf="rota.id !== undefined" (click)="excluirRota(rota.id)" class="btn-delete">Excluir</button>
     </li>
   </ul>
 </div>
 
-<div *ngIf="rotas.length === 0">
+<div *ngIf="rotas.length === 0" class="no-rotas">
   <p>Não há rotas cadastradas.</p>
 </div>
