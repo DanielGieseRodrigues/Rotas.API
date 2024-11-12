@@ -40,7 +40,7 @@ O projeto não tem nada fora do normal do desafio, porém é importante destacar
 3. A interface estará disponível em: `http://localhost:4200`.
 
 Observações : 
-1 - É de suma importância que essas portas descritas acimas não estejam sendo utilizadas por nenhum outro processo.
-2 - A criação dos dados iniciais é feita usando o seed do EF In Memory, ou seja, não é necessário inserir esses dados toda vez que iniciar a aplicação.
-3 - A Estrutura escolhida foi uma opção didática, para demonstrar conhecimentos de padrões escalaveis de tamanhos reais de mercado.
-4 ( Final )  - Me propus a fazer o desafio em Angular por ser um foco da missão, me diverti desenvolvendo esta pequena prova de conceito, qualquer dúvida podem me contatar pelo email ou pelo whats app! Muito Obrigado!!!!!
+1. É de suma importância que essas portas descritas acimas não estejam sendo utilizadas por nenhum outro processo.
+2. A criação dos dados iniciais é feita usando o seed do EF In Memory, ou seja, não é necessário inserir esses dados toda vez que iniciar a aplicação.
+3. A Estrutura escolhida foi uma opção didática, para demonstrar conhecimentos de padrões escalaveis de tamanhos reais de mercado.
+4. ( Final )  - Me propus a fazer o desafio em Angular por ser um foco da missão, me diverti desenvolvendo esta pequena prova de conceito, qualquer dúvida podem me contatar pelo email ou pelo whats app! Muito Obrigado!!!!!
