@@ -1,0 +1,6 @@
+@Rotas.API_HostAddress = http://localhost:5020
+
+GET {{Rotas.API_HostAddress}}/Rotas/
+Accept: application/json
+
+###
