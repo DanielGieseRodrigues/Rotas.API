@@ -1,0 +1,15 @@
+<h2>Calcular Melhor Rota</h2>
+
+<form (ngSubmit)="calcularMelhorRota()">
+  <label for="origem">Origem</label>
+  <input id="origem" [(ngModel)]="origem" name="origem" placeholder="Digite a origem" required>
+
+  <label for="destino">Destino</label>
+  <input id="destino" [(ngModel)]="destino" name="destino" placeholder="Digite o destino" required>
+
+  <button type="submit">Calcular Melhor Rota</button>
+</form>
+
+<div *ngIf="melhorRota">
+  <p>Melhor Rota: {{ melhorRota }}</p>
+</div>

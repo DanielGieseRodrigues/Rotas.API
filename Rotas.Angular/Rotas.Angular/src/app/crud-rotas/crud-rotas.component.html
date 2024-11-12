@@ -1,0 +1,27 @@
+<h2>CRUD de Rotas</h2>
+
+<form (ngSubmit)="addRota()">
+  <label for="origem">Origem</label>
+  <input id="origem" [(ngModel)]="novaRota.origem" name="origem" placeholder="Digite a origem" required>
+
+  <label for="destino">Destino</label>
+  <input id="destino" [(ngModel)]="novaRota.destino" name="destino" placeholder="Digite o destino" required>
+
+  <label for="valor">Valor</label>
+  <input id="valor" [(ngModel)]="novaRota.valor" name="valor" type="number" placeholder="Digite o valor" required>
+
+  <button type="submit">Adicionar Rota</button>
+</form>
+
+<div *ngIf="rotas.length > 0">
+  <h3>Lista de Rotas</h3>
+  <ul>
+    <li *ngFor="let rota of rotas">
+      {{ rota.origem }} - {{ rota.destino }}: {{ rota.valor }}$
+      <button *ngIf="rota.id !== undefined" (click)="excluirRota(rota.id)">Excluir</button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="rotas.length === 0">
+  <p>Não há rotas cadastradas.</p>
+</div>

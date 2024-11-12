@@ -10,10 +10,19 @@ using Rotas.API.Infra.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin() 
+              .AllowAnyMethod() 
+              .AllowAnyHeader();
+    });
+});
 
 builder.Services.AddDbContext<RotaContext>(options => options.UseInMemoryDatabase("RotaDb"));
 builder.Services.AddScoped<IRotaRepository, RotaRepository>();
@@ -26,6 +35,8 @@ builder.Services.AddScoped<ExcluirRotaUseCase>();
 builder.Services.AddScoped<EditarRotaUseCase>();
 
 var app = builder.Build();
+
+app.UseCors("AllowAll");
 
 using (var scope = app.Services.CreateScope())
 {
