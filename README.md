@@ -1,11 +1,5 @@
 # Rotas.API
 
-Este projeto é uma API desenvolvida em **.NET Core**, utilizando o padrão de Use cases, com aplicação de princípios do Clean Architecture, Usa o Entity Framework In memory para persistência temporária de dados. O código foi estruturado para seguir boas práticas de design, incluindo **DRY (Don't Repeat Yourself)** , **KISS (Keep It Simple, Stupid)** e **Clean Code.**
-
-## Requisitos para rodar o projeto
-
-O projeto não tem nada fora do normal do desafio, porém é importante destacar para caso não tenha alguma das dependências ou algum problema para iniciar / consumir a aplicação. Seguem requisitos e links úteis :
-
 ### 1. **.NET Framework / SDK**
 - **.NET 8.0 SDK** ou superior para o .NET.
 - [Download do .NET SDK](https://dotnet.microsoft.com/download)
